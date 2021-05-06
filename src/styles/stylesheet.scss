@@ -20,8 +20,33 @@ a {
     }
   }
 
-.assistant {
-  height: 40px;
+  .assistant_wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 2fr 3fr;
+    gap: 1em;
+    margin-top: 2em;
+    padding:1em;
+    align-items:end;
+
+    .assistant_img {
+        justify-self: end;
+        padding-bottom: .5em;
+        img {
+            height: 4em;
+        }
+    } 
+    .assistant_text {
+        justify-self: start;
+        background-image: url("assets/textbox.svg");
+        background-position: center;
+        background-repeat: no-repeat; 
+        background-size: 80%;
+        p {
+            padding: 2em;
+            margin: 1em;
+            margin-left: 3em;
+        }
+    }  
 }
 
 body {
