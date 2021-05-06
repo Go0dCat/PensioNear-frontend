@@ -1,19 +1,18 @@
 <template>
   <div id="app">
     <header>
-      <h1> PensioNear </h1>
+        <h1> PensioNear </h1>
 
-      <div id="headerR" class="wrapper w_2fr">
-        <div class="btn btn_round"> <p class="btn_text">Help</p> </div>
-        <div class="btn btn_round"> <p class="btn_text">Profile</p> </div>
+      <div id="headerR" class="wrapper">
+        <router-link to="/"><div class="btn btn_round"> <p class="btn_text">Home</p> </div></router-link> 
+        <router-link to="/help"><div class="btn btn_round"> <p class="btn_text">Help</p> </div></router-link>
+        <router-link to="/profile"><div class="btn btn_round"> <p class="btn_text">Profile</p> </div></router-link>
       </div>
 
     </header>
-    <!--div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div-->
+
     <router-view />
+
   </div>
 </template>
 
@@ -30,6 +29,16 @@
   grid-template-columns: 1fr;
   
 }
+
+a {
+    text-decoration: none;
+    color: #2c3e50;
+
+    &.router-link-exact-active {
+      color: #42b983;
+    }
+  }
+
 body {
   margin: 0;
   padding: 0;
@@ -45,6 +54,13 @@ body {
   background-color: #ffffff;
   text-align: center;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.26));
+}
+
+.btn:hover {
+  background-color: #fff;
+  text-align: center;
+  filter: none;
+  box-shadow:inset 0 0 4px 4px rgba(0, 0, 0, 0.26);
 }
 
 .btn_round {
@@ -74,27 +90,13 @@ header {
 }
 
 #headerR {
-  grid-template-columns:  4fr 1fr;
+  grid-template-columns:  3fr 1fr 1fr;
   gap:5px;
   text-align: center;
   justify-items: right;
   align-items: center;
   padding-right: 1em;
 }
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
-
 
 .wrapper {
   display: grid;
