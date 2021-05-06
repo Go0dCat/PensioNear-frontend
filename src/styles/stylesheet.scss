@@ -22,7 +22,6 @@ a {
   }
 
   .assistant_wrapper {
-    grid-template-columns: repeat(2, 1fr);
     grid-template-columns: 2fr 3fr;
     gap: 1em;
     margin-top: 2em;
@@ -70,6 +69,7 @@ body {
     text-align: center;
     display: inline;
   }
+  
 }
 
 .btn:hover {
@@ -84,6 +84,9 @@ body {
   border-radius: 50%;
   width: 2em;
   height: 2em;
+}
+.btn_square {
+  background: rgba(213, 231, 175, 0.76);
 }
 
 header {
@@ -106,6 +109,17 @@ header {
     justify-items: right;
     align-items: center;
     padding-right: 1em;
+  }
+}
+.home .box_container {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2em;
+  margin-left: 8em;
+  margin-right: 8em;
+  margin-top: 4em;
+
+  .btn_square {
+    padding: 2em;
   }
 }
 
