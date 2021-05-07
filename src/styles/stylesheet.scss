@@ -41,10 +41,12 @@ a {
         background-position: center;
         background-repeat: no-repeat; 
         background-size: 80%;
-        p {
-            padding: 2em;
+        
+        p {            
             margin: 1em;
             margin-left: 3em;
+            padding: 3em;
+            width: 200px;
         }
     }  
 }
