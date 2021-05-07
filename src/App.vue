@@ -1,32 +1,22 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <header>
+        <h1> PensioNear </h1>
+
+      <div id="headerR" class="wrapper">
+        <router-link to="/"><div class="btn btn_round"> <p class="btn_text">Home</p> </div></router-link> 
+        <router-link to="/help"><div class="btn btn_round"> <p class="btn_text">Help</p> </div></router-link>
+        <router-link to="/profile"><div class="btn btn_round"> <p class="btn_text">Profile</p> </div></router-link>
+      </div>
+
+    </header>
+
     <router-view />
+
   </div>
 </template>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+@import "./styles/stylesheet.scss";
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
 </style>
