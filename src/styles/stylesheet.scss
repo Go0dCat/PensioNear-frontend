@@ -11,6 +11,12 @@
   
 }
 
+/*
+ * Stylesheet for PensioNear frontend
+ *
+ * tags, classes and id:s are sorted alphabetically, and nested when appropriate
+ */
+
 a {
     text-decoration: none;
     font-weight: bold;
@@ -51,28 +57,11 @@ a {
     }
 }
 
-.search_wrapper{
-  width: 50%;
-  margin: auto;      
-      
-  div{
-    width: 100%;
-    position: relative;
-    display: flex;
-    text-align: center;
-
-    input.search {
-      width: 80%;
-      padding: 12px 24px;
-      border: 1px, solid black;
-        
-    }
-    button.searchButton{
-      width: 10%;
-      float: left;
-      cursor: pointer;
-    }
-  }      
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vb;
+  min-height: 100vh;
 }
 
 .box-wrapper{
@@ -113,20 +102,6 @@ a {
   }
 }
 
-.form-inline {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  padding: 1em;
-
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  width: 100vb;
-  min-height: 100vh;
-}
 
 .btn {
   display: grid;
@@ -161,6 +136,14 @@ body {
   background: rgba(213, 231, 175, 0.76);
 }
 
+.form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding: 1em;
+
+}
+
 header {
   display:grid;
   grid-template-columns: repeat(2, 1fr);
@@ -193,6 +176,30 @@ header {
   .btn_square {
     padding: 2em;
   }
+}
+
+.search_wrapper{
+  width: 50%;
+  margin: auto;      
+      
+  div{
+    width: 100%;
+    position: relative;
+    display: flex;
+    text-align: center;
+
+    input.search {
+      width: 80%;
+      padding: 12px 24px;
+      border: 1px, solid black;
+        
+    }
+    button.searchButton{
+      width: 10%;
+      float: left;
+      cursor: pointer;
+    }
+  }      
 }
 
 .wrapper {
