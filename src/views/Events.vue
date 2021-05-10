@@ -2,9 +2,19 @@
   <div class="events">
     <Assistant :greet="getGreeting()" :msg="getMessage()"/>
     <Search />
-    <div>
+    <div class="wrapper box-wrapper">
       <h2 >Categories</h2>
-      <button>B</button>     
+      <div class="card-buttons">
+        <button>Sports</button>  
+        <button>Sports</button> 
+        <button>Sports</button> 
+        <button>Sports</button> 
+        <button>Sports</button> 
+        <button>Sports</button>
+        <button>Sports</button> 
+        <button>Sports</button>  
+      </div>
+      <button class="detail-btn">See more</button>          
     </div>
   </div>
 </template>
