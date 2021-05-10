@@ -1,21 +1,37 @@
 <template>
-  <div class="call">
+  <div class="wrapper call">
    <Assistant :greet="getGreeting()" :msg="getMessage()"/> 
+   <h2>Call a friend</h2>
+   <div class="wrapper wrapper_call">
+        <div class="wrapper call_friends">
+          <!--TODO bind to data -->
+          <CardCall v-for="(friend,index) in friends" v-bind:key="index" :friend="friend.username"/>
+        </div>
+        <div class="wrapper call_group">
+          <h2> Make a group call</h2>
+          <p>Under development...</p>
+          <!--TODO combine with search   <Search/>-->
+        </div>
+      </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import Assistant from "@/components/Assistant.vue";
+import CardCall from "@/components/Card_call.vue";
 
 export default {
   name: "Call",
   components: {
     Assistant,
+    CardCall
   },
   data : function(){
     return{
       username: "Bob",
+      friends: [ 
+        {username:"Darwin"}, {username:"Boris"}, {username:"Luther"}],
     };
   },
   methods: {
@@ -30,5 +46,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+
   
 </style>
