@@ -113,6 +113,14 @@ a {
   }
 }
 
+.form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding: 1em;
+
+}
+
 body {
   margin: 0;
   padding: 0;

@@ -16,6 +16,23 @@
       </div>
       <button class="detail-btn">See more</button>          
     </div>
+
+    <div class="wrapper box-wrapper">
+      <h2>Calendar</h2>
+       <div>
+         <form action="" class="form-inline">
+           <div>
+              <label for="">Events</label>
+              <select name="event_sort" id="">
+                <option value="today">Today</option>
+                <option value="this_week">This Week</option>
+                <option value="this_month">This Month</option>
+              </select>
+           </div>            
+            <label for=""> <input type="checkbox" /> Show my events</label>
+         </form>
+       </div>
+    </div>
   </div>
 </template>
 
