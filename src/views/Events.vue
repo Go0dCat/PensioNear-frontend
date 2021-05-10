@@ -2,6 +2,10 @@
   <div class="events">
     <Assistant :greet="getGreeting()" :msg="getMessage()"/>
     <Search />
+    <div>
+      <h2 >Categories</h2>
+      <button>B</button>     
+    </div>
   </div>
 </template>
 
