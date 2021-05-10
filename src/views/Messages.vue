@@ -1,6 +1,8 @@
 <template>
   <div class="messages">
     <Assistant :greet="getGreeting()" :msg="getMessage()"/> 
+    <h2>Messages </h2>
+    <p> Under construction... </p>
   </div>
 </template>
 
@@ -30,5 +32,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  
+  p, h2 {
+    text-align: center;
+  }
 </style>
