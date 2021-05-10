@@ -4,6 +4,7 @@
     <h2>Profile</h2>
     <div class="wrapper wrapper_profile">
       <div class="wrapper">
+        <!--TODO bind username to data-->
         <CardProfile :username="this.username"/>
         
       </div>

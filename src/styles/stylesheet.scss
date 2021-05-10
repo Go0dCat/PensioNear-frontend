@@ -130,6 +130,11 @@ body {
   box-shadow:inset 0 0 4px 4px rgba(0, 0, 0, 0.26);
   background-color: rgba(139, 185, 38, 0.76);
 }
+
+.btn:active {
+  box-shadow:inset 0 0 4px 4px rgba(255, 255, 255, 0.25);
+
+}
 .btn_gray {
   background-color: rgba(255, 255, 255, 0.75);
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.26));
@@ -319,6 +324,53 @@ header {
   }      
 }
   
+.wrapper_call {
+  justify-items: center;
+  .call_friends {
+    grid-template-columns: repeat(3, 1fr);
+    gap:1em;
+    
+    .wrapper_card_call {
+      grid-template-columns: repeat(2, 1fr);
+      gap:1em;
+      max-width:200px;
+      padding:.5em 1em;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(255, 255, 255, 0.25);
+  
+  
+      .call_friend_about {
+          grid-template-columns:1fr;
+          text-align:center;
+          
+          img {
+            margin-top:.5em;
+            width: 75px;
+       }
+      }
+      .call_qactions {
+          grid-template-columns:1fr;
+          justify-items: center;
+          align-items:center;
+
+          .btn {
+              border-radius: 3px;
+              margin: 0 .5em;
+              width:4em;
+              height:4em;
+          }
+      }
+    }
+  }
+
+  .call_group {
+    margin-top: 2em;
+    p {
+      text-align: center;
+    }
+  }
+
+  
+}
 
 .wrapper {
   display: grid;
@@ -335,11 +387,13 @@ header {
       justify-items: center;
     }
 
+
     .wrapper_card_friend {
       grid-template-columns: 1fr;
       padding:1em 2em;
       max-width:500px;
       gap:1em;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(255, 255, 255, 0.25);
   
   
       .card_friend_about {

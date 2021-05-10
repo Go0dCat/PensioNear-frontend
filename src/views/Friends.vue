@@ -10,6 +10,7 @@
         <div class="wrapper friend_create">
           <h2> Add new friend</h2>
           <div class="btn btn_round btn_gray"> <img alt="add new friend icon" src="../assets/add-friend.svg" /></div>
+          <!--TODO combine with search   <Search/>-->
         </div>
       </div>
   </div>
@@ -19,12 +20,14 @@
 // @ is an alias to /src
 import Assistant from "@/components/Assistant.vue";
 import CardFriend from "@/components/Card_friend.vue";
+//import Search from "@/components/Search.vue";
 
 export default {
   name: "Friends",
   components: {
     Assistant,
-    CardFriend
+    CardFriend,
+
   },
   data : function(){
     return{

@@ -23,7 +23,7 @@ export default {
     },
     data : function(){
     return{
-        username: "yo",
+        username: "test",
     };
   },
 };
