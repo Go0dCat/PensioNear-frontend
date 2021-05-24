@@ -34,7 +34,6 @@ export default {
       return 'What would you like to do now?';
     }
   }
-  
 }
 </script>
 
