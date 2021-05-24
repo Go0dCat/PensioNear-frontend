@@ -21,6 +21,7 @@
         </div>
     </div>
 
+    <!--This p is just for testing purposes, it is connected to vuex storage in store/index.js-->
     <p>The username: {{username}}</p>
 
   </div>

@@ -1,17 +1,28 @@
 <template>
-    <header>
+    <header v-if="username!==null">
         <h1> PensioNear </h1>
+        <div id="headerR" class="wrapper">
+            <!--TODO fix so that home + profile is shown when logged in, and -->
+            <router-link to="/home"><div class="btn btn_round"> <p class="btn_text">Home</p> </div></router-link> 
+            <!--router-link to="/help"><div class="btn btn_round"> <p class="btn_text">Help</p> </div></router-link--> <!--TODO fix when login is done-->
+            <router-link to="/"><div v-if="true" class="btn btn_round"> <p class="btn_text">Login</p> </div></router-link>
+            <router-link to="/profile"><div class="btn btn_round"> <p class="btn_text">Profile</p> </div></router-link>
+        </div>
 
-      <div id="headerR" class="wrapper">
+    </header>
+
+    <header v-else>
+        <h1> PensioNear </h1>
+        <div id="headerR" class="wrapper">
         <!--TODO fix so that home + profile is shown when logged in, and -->
-        <router-link to="/"><div class="btn btn_round"> <p class="btn_text">Login</p> </div></router-link> 
-        <router-link to="/home"><div class="btn btn_round"> <p class="btn_text">Home</p> </div></router-link> 
-        <!--router-link to="/help"><div class="btn btn_round"> <p class="btn_text">Help</p> </div></router-link-->
-        <router-link to="/profile"><div class="btn btn_round"> <p class="btn_text">Profile</p> </div></router-link>
-      </div>
+            <router-link to="/home"><div v-show="true" class="btn btn_round"> <p class="btn_text">Home</p> </div></router-link> 
+            <router-link to="/help"><div class="btn btn_round"> <p class="btn_text">Help</p> </div></router-link>
+            <router-link to="/"><div class="btn btn_round"> <p class="btn_text">Login</p> </div></router-link>
+        </div>
 
     </header>
 </template>
+
 
 <script>
 export default {
@@ -20,6 +31,18 @@ export default {
     msg: String,
     greet: String,
   },
+  data : function(){
+    return{
+      test: null,
+    };
+  },
+  methods: {
+  },
+  computed: {
+      username() {
+          return this.$store.state.username;
+      }
+  }
 };
 </script>
 
