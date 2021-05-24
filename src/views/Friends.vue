@@ -5,7 +5,7 @@
       <div class="wrapper wrapper_friends">
         <div class="wrapper friend_list">
           <!--TODO bind to data -->
-          <CardFriend v-for="(friend,index) in friends" v-bind:key="index" :friend="friend.username"/>
+          <CardFriend v-for="(friend,index) in friends" v-bind:key="index" :friend="friend"/>
         </div>
         <div class="wrapper friend_create">
           <h2> Add new friend</h2>
@@ -31,9 +31,8 @@ export default {
   },
   data : function(){
     return{
-      username: "Bob",
-      friends: [ 
-        {username:"Agatha"}, {username:"Christine"}, {username:"Bertha"}],
+      test: "Bob",
+      
     };
   },
   methods: {
@@ -46,6 +45,14 @@ export default {
     getFriends: function() {
       return this.friends;
     }
+  },
+  computed: {
+      username() {
+          return this.$store.state.username;
+      },
+       friends() {
+          return this.$store.state.friends;
+      },
   }
 };
 </script>

@@ -17,7 +17,7 @@ export default {
   },
   data : function(){
     return{
-      username: "Bob",
+      test: null,
     };
   },
   methods: {
@@ -27,6 +27,11 @@ export default {
     getMessage: function() {
       return 'Who would you like to message?';
     }
+  },
+  computed: {
+      username() {
+          return this.$store.state.username;
+      }
   }
 };
 </script>

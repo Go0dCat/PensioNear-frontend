@@ -31,7 +31,7 @@ export default {
   },
   data : function(){
     return{
-      username: "Bob",
+      test: "Bob",
     };
   },
   methods: {
@@ -41,6 +41,12 @@ export default {
     getMessage: function() {
       return 'Here you can update your profile.';
     }
+  },
+  computed: {
+      username() {
+          return this.$store.state.username;
+      },
+      
   }
 };
 </script>

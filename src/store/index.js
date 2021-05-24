@@ -7,8 +7,13 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    username: "test",
-    password: "secretPW"
+    username: "Love",
+    gender: "non-binary",
+    age: 62,
+    city: "Umeå",
+    country: "Sweden",
+    hobbies: ["poodles", "coffee"],
+    friends: [{username: "Boris", gender: "male"}, {username: "Bertha", gender:"female"}, {username: "Luther", gender:"male"}, {username: "Darwin", gender:"male"}, {username: "Agatha", gender:"female"}, {username:"Christine", gender:"female"}]
   },
   mutations: {
   },
