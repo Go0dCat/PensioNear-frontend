@@ -46,6 +46,9 @@ export default {
       username() {
           return this.$store.state.username;
       },
+      friends() {
+          return this.$store.state.friends;
+      }
       
   }
 };
