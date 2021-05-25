@@ -5,7 +5,7 @@
    <div class="wrapper wrapper_call">
         <div class="wrapper call_friends">
           <!--TODO bind to data -->
-          <CardCall v-for="(friend,index) in friends" v-bind:key="index" :friend="friend.username"/>
+          <CardCall v-for="(friend,index) in friends" v-bind:key="index" :friend="friend"/>
         </div>
         <div class="wrapper call_group">
           <h2> Make a group call</h2>
@@ -21,17 +21,17 @@
 import Assistant from "@/components/Assistant.vue";
 import CardCall from "@/components/Card_call.vue";
 
+
 export default {
   name: "Call",
   components: {
     Assistant,
-    CardCall
+    CardCall,
   },
   data : function(){
     return{
-      username: "Bob",
-      friends: [ 
-        {username:"Darwin"}, {username:"Boris"}, {username:"Luther"}],
+      test: "Bob",
+      
     };
   },
   methods: {
@@ -41,6 +41,14 @@ export default {
     getMessage: function() {
       return 'Who would you like to call?';
     }
+  },
+  computed: {
+      username() {
+          return this.$store.state.username;
+      },
+      friends() {
+          return this.$store.state.friends;
+      },
   }
 };
 </script>

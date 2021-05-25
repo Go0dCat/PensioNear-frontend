@@ -2,9 +2,13 @@
     <div class="card_friend wrapper">
         <div class="btn_square wrapper wrapper_card_friend">
             <div class="wrapper card_friend_about">
-                <div><p>{{friend}}</p></div>
+                <div><p>{{friend.username}}</p></div>
                 <!-- TODO bind to data --> 
-                <div><img alt="user profile image avatar" src="../assets/grandmother.svg" /></div>
+                <div>
+                    <img  v-if="friend.gender==='male'" alt="user profile image avatar" src="../assets/old-man.svg" />
+                    <img  v-else-if="friend.gender==='female'" alt="user profile image avatar" src="../assets/old-woman.svg" />
+                    <img  v-else alt="user profile image avatar" src="../assets/flower-pot.svg" />
+                </div>
                 
             </div>
             <div class="wrapper card_friend_qactions">

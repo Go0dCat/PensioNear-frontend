@@ -49,7 +49,7 @@ export default {
   },
   data : function(){
     return{
-      username: "Bob",
+      test: "Bob",
     };
   },
   methods: {
@@ -59,6 +59,11 @@ export default {
     getMessage: function() {
       return 'What kind of event are you interested in?';
     }
+  },
+  computed: {
+      username() {
+          return this.$store.state.username;
+      }
   }
 };
 </script>

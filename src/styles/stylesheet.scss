@@ -326,6 +326,56 @@ header {
     }
   }      
 }
+.wrapper_messages {
+  grid-template-columns: 1fr 3fr;
+  width:60%;
+  justify-self: center;
+  gap: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  margin-bottom: 2em;
+
+  .msg_friendlist {
+    background: rgba(213, 231, 175, 0.76);
+    box-shadow: 4px 0 4px rgba(0, 0, 0, 0.25);
+    padding-bottom:1em;
+  }
+
+  .chat_history {
+    justify-items: center;
+    align-items: center;
+
+    img {
+      width:80%;
+      height:auto;
+    }
+  }
+
+  .msg_friend {
+    width: 95%;
+    min-height: 2em;
+    height:3em;
+    justify-self: start;
+    margin-top:1em;
+    margin-bottom:0;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-left: none;
+    grid-template-columns: 2fr 3fr;
+    gap: 2em;
+
+    .msg_friend_img {
+        justify-self:end;
+    }
+    .msg_friend_username {
+        justify-self:start;
+    }
+
+    img {
+        width:40px;
+    }
+}
+}
   
 .wrapper_call {
   justify-items: center;
