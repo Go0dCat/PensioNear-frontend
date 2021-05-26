@@ -3,7 +3,7 @@
       <Assistant :greet="getGreeting()" :msg="getMessage()"/> 
       <h2>Profile</h2>
       <div class="w_form wrapper">
-        <form>
+        <form @submit="updateUserInfo" v-on:submit.prevent="onSubmit">
           <div class="wrapper">
             <!--Could probably be replaced with a v-for-->
             <h3>Info</h3>
@@ -25,12 +25,12 @@
             </div>
             <h3>Hobbies</h3>
             <div class="wrapper w_checkbox">
-              <div v-for="(option, index) in hobbyOptions" v-bind:key="index">
-                <input type="checkbox" v-model="option.value"><label>{{option.hobby}} </label>
+              <div v-for="(hobby, index) in userInfo.hobbies" v-bind:key="index">
+                <input type="checkbox" v-model="hobby.value"><label>{{hobby.name}} </label>
               </div>            
             </div>
             <br>
-            <input class="btn btn_gray" type="submit">
+            <input class="btn btn_gray" type="submit" value="Submit">
           </div>
         </form>
       </div>
@@ -74,6 +74,10 @@ export default {
     getMessage: function() {
       return 'Edit your profile here.';
     },
+    updateUserInfo() {
+        this.$store.commit('setUserInfo', this.userInfo);
+        confirm('You have updated your information!');
+    }
   },
   computed: {
       username() {
@@ -81,7 +85,7 @@ export default {
       },
       userInfo() {
           return this.$store.state.userInfo;
-      }
+      },
       
   }
 };
