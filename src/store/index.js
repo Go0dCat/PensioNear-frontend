@@ -13,14 +13,17 @@ export default new Vuex.Store({
       age: 62,
       city: "Umeå",
       country: "Sweden",
-      hobbies: ["poodles", "coffee"],
+      hobbies: [
+        {name: "poodles", value: true},
+        {name: "cats", value: false},
+        {name: "gardening", value: true},
+        {name: "food", value: false},
+        {name: "politics", value: false},
+        {name: "sports", value: false},
+        {name: "horses", value: false},
+        {name: "traveling", value: true}
+      ],
     },
-    //TODO remove following and replace with the above
-    gender: "non-binary",
-    age: 62,
-    city: "Umeå",
-    country: "Sweden",
-    hobbies: ["poodles", "coffee"],
     //No need to be nested prob
     friends: [
       {username: "Boris", gender: "male"}, 
@@ -32,6 +35,9 @@ export default new Vuex.Store({
     ]
   },
   mutations: {
+    setUserInfo (state, payload) {
+      Vue.set(state, 'userInfo', payload)
+    }
   },
   actions: {},
   modules: {},
