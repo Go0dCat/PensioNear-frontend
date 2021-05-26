@@ -42,7 +42,7 @@ export default {
   data : function(){
     return{
       test: null,
-      //dogs: null
+      //dogs: null //usable in getDogs() example function
     };
   },
   methods: {
@@ -52,6 +52,8 @@ export default {
     getMessage: function() {
       return 'Please login or register.';
     },
+
+    //Following function doesn't work, but is an example of how to work with axios. 
     exampleFun: function() {
       let connection = 'serverurl';
 
@@ -91,11 +93,11 @@ export default {
           confirm('Unable to DELETE, check valid connection');
       });
     },
-    //example of async GET directly from another project
+    //example of async GET directly from another project, and a cleaner syntax
      getDogs: async function (){
       axios
         .get('http://localhost:8081/api/dog')
-        .then(response => {this.dogs = response.data}) //this.dogs is refering to any object, and can be introduced by uncommenting a line in data
+        .then(response => {this.dogs = response.data}) //this.dogs is refering to any such object that exists, an example is in
         .catch((error) => {
           console.log(error);
         });

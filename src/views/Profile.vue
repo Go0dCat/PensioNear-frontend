@@ -9,11 +9,13 @@
         
       </div>
       <div class="wrapper wrapper_settings">
-        <div class="btn btn_gray btn_icon icon_settings"><img alt="settings icon" src="../assets/settings.svg" /></div>
-        <div class="btn btn_gray icon_logout">Logout</div>
+        <div class="btn btn_gray btn_icon icon_settings" v-on:click="$refs.modalName.openModal()"><img alt="settings icon" src="../assets/settings.svg" /></div>
+        <div class="btn btn_gray icon_logout" v-on:click="confirm('Logout not yet available')">Logout</div>
       </div> 
 
     </div>
+
+    <Modal ref="modalName" :title="getModTitle()" :msg="getModMsg()"/> 
   </div>
 
 </template>
@@ -22,12 +24,14 @@
 // @ is an alias to /src
 import Assistant from "@/components/Assistant.vue";
 import CardProfile from "@/components/Card_profile.vue";
+import Modal from "@/components/Modal_temp.vue";
 
 export default {
   name: "Profile",
   components: {
     Assistant,
-    CardProfile
+    CardProfile,
+    Modal
   },
   data : function(){
     return{
@@ -40,6 +44,12 @@ export default {
     },
     getMessage: function() {
       return 'Here you can update your profile.';
+    },
+    getModTitle: function() {
+      return `Settings`;
+    },
+    getModMsg: function() {
+      return 'This functionality is yet to be implemented.';
     }
   },
   computed: {

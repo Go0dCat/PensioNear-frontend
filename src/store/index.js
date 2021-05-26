@@ -8,12 +8,28 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     username: "Love",
+    userInfo: {
+      gender: "non-binary",
+      age: 62,
+      city: "Umeå",
+      country: "Sweden",
+      hobbies: ["poodles", "coffee"],
+    },
+    //TODO remove following and replace with the above
     gender: "non-binary",
     age: 62,
     city: "Umeå",
     country: "Sweden",
     hobbies: ["poodles", "coffee"],
-    friends: [{username: "Boris", gender: "male"}, {username: "Bertha", gender:"female"}, {username: "Luther", gender:"male"}, {username: "Darwin", gender:"male"}, {username: "Agatha", gender:"female"}, {username:"Christine", gender:"female"}]
+    //No need to be nested prob
+    friends: [
+      {username: "Boris", gender: "male"}, 
+      {username: "Bertha", gender:"female"},
+      {username: "Luther", gender:"male"}, 
+      {username: "Darwin", gender:"male"}, 
+      {username: "Agatha", gender:"female"}, 
+      {username:"Christine", gender:"female"}
+    ]
   },
   mutations: {
   },
