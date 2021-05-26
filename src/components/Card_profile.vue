@@ -16,7 +16,7 @@
             </div>
         </div> 
         <div class="card_edit">
-            <p>edit profile</p>
+             <router-link to="/profile/edit"><p>edit profile</p></router-link>
         </div>  
     </div>
 </template>
