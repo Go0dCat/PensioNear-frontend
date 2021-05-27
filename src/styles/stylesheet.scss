@@ -87,10 +87,10 @@ body {
     }
     //TODO Replace with classes btn_square:hover above
     button:hover{
+      box-shadow:inset 0 0 4px 4px rgba(0, 0, 0, 0.137);
       background-color: rgba(139, 185, 38, 0.76);
     }
   }
-  
 
   button.detail-btn{
     width: 20%;
@@ -101,6 +101,7 @@ body {
   }
 
   button.detail-btn:hover{
+    box-shadow:inset 0 0 4px 4px rgba(0, 0, 0, 0.137);
     background-color: rgba(139, 185, 38, 0.76);
   }
 }
@@ -122,6 +123,104 @@ body {
     display: inline;
   }
   
+}
+
+.event_cat_wrapper{
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  padding: 1em;
+
+  .form_wrapper{
+      display:grid;
+      grid-template-columns: 70% auto;
+      align-items: center;
+
+      h1{
+        justify-self: center;
+      }
+
+      div.selection{
+        display: flex;
+        justify-content: flex-end;
+
+        select{
+          margin: 0 1em;
+        }
+      }
+  }
+
+  div.card-box{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    width: 80%;
+
+    div.card_event{
+      float: left;
+      width: 80%;
+      padding: 1em;
+      
+    }
+  
+    div.card{
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      background-color:rgb(223, 223, 223);       
+    }
+  
+    div.card_info{
+      padding: 2em;
+      height: 100px;
+      white-space: normal;
+    }
+    
+    button{
+      width: 100%;
+      padding: 10px;
+      background-color: rgba(213, 231, 175, 0.76);
+      border: 1px solid rgba(0, 0, 0, 0.479);
+    }
+    button:hover{
+      box-shadow:inset 0 0 4px 4px rgba(0, 0, 0, 0.137);
+      background-color: rgba(139, 185, 38, 0.76);
+    }
+  }
+}
+
+.event_wrapper{
+  padding: 10px;
+  display: inline-flex;
+  white-space: nowrap;
+  overflow-y: hidden;
+  overflow-x: scroll;  
+
+  div.card_event{
+    float: left;
+    width: 50%;
+    padding: 1em;
+  }
+
+  div.card{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color:rgb(223, 223, 223);  
+  }
+
+  div.card_info{
+    padding: 2em;
+    height: 100px;
+    width: 120px;
+    white-space: normal;
+  }
+  
+  button{
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(213, 231, 175, 0.76);
+    border: 1px solid rgba(0, 0, 0, 0.479);
+  }
+  button:hover{
+    box-shadow:inset 0 0 4px 4px rgba(0, 0, 0, 0.137);
+    background-color: rgba(139, 185, 38, 0.76);
+  }
 }
 
 .btn:hover {
@@ -328,6 +427,7 @@ header {
     }
   }      
 }
+
 .wrapper_messages {
   grid-template-columns: 1fr 3fr;
   width:60%;
@@ -495,4 +595,45 @@ header {
   }
     
   }
+}
+
+@media screen and (max-width: 800px) {
+  .event_wrapper{
+    div.card_event{
+      width: 40%;
+    }
+    div.card_info{
+      padding: 1em;
+    }
+
+    button{
+      padding: 10px;
+    }
+  }
+
+  .event_cat_wrapper{
+    .form_wrapper{
+      grid-template-columns: 70% auto;
+
+      h1{
+        justify-self:normal;
+      }
+
+      div.selection{
+        display: flex;
+        justify-content:space-between;
+
+        select{
+          margin: 0 4px;
+          padding: 8px;
+        }
+      }
+    }
+
+    div.card-box{
+      display: grid;
+      grid-template-columns: auto auto auto;
+    }
+  }
+
 }
