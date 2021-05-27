@@ -25,12 +25,12 @@ export default new Vuex.Store({
       ],
     }, 
     friends: [
-      {username: "Boris", gender: "male"}, 
-      {username: "Bertha", gender:"female"},
-      {username: "Luther", gender:"male"}, 
+      {username: "Isaac", gender: "male"}, 
+      {username: "Marie", gender:"female"},
+      {username: "Niels", gender:"male"}, 
       {username: "Darwin", gender:"male"}, 
-      {username: "Agatha", gender:"female"}, 
-      {username:"Christine", gender:"female"}
+      {username: "Ada", gender:"female"}, 
+      {username: "Christine", gender:"female"}
     ],
     categories: [
       {name:"Sports", id:"1"},
@@ -49,6 +49,44 @@ export default new Vuex.Store({
       {index:"4",category_id:"3", name: "Chess reunion", time:"9 am", when:"Today"},
       {index:"5",category_id:"3", name: "Chess reunion", time:"12 am", when:"today"}
     ],
+    allUsers: [
+      {username: "Angie", age: 67, gender: "female", city: "Umeå", country: "Sweden", 
+        hobbies: [{name: "poodles", value: true},{name: "cats", value: true},{name: "gardening", value: false},{name: "food", value: false},
+        {name: "politics", value: false},{name: "sports", value: true},{name: "horses", value: false},{name: "traveling", value: true}]
+      }, 
+      {username: "Christopher", age: 65, gender: "male", city: "Kalix", country: "Sweden", 
+        hobbies: [{name: "poodles", value: true},{name: "cats", value: false},{name: "gardening", value: false},{name: "food", value: false},
+        {name: "politics", value: true},{name: "sports", value: false},{name: "horses", value: true},{name: "traveling", value: false}]
+      },
+      {username: "Reuel", age: 85, gender: "other", city: "Haparanda", country: "Sweden", 
+        hobbies: [{name: "poodles", value: true},{name: "cats", value: false},{name: "gardening", value: false},{name: "food", value: false},
+        {name: "politics", value: false},{name: "sports", value: false},{name: "horses", value: true},{name: "traveling", value: true}]
+      }, 
+      {username: "Clive Staples", age: 74, gender: "male", city: "Vasa", country: "Finland", 
+        hobbies: [{name: "poodles", value: true},{name: "cats", value: false},{name: "gardening", value: true},{name: "food", value: true},
+        {name: "politics", value: false},{name: "sports", value: false},{name: "horses", value: false},{name: "traveling", value: false}]
+      }, 
+      {username: "Guy Gavriel", age: 71, gender: "male", city: "Jakobstad", country: "Finland", 
+        hobbies: [{name: "poodles", value: true},{name: "cats", value: true},{name: "gardening", value: false},{name: "food", value: false},
+        {name: "politics", value: false},{name: "sports", value: false},{name: "horses", value: true},{name: "traveling", value: false}]
+      },
+      {username: "Naomi", age: 92, gender: "female", city: "Adelaide", country: "Australia", 
+        hobbies: [{name: "poodles", value: true},{name: "cats", value: true},{name: "gardening", value: false},{name: "food", value: false},
+        {name: "politics", value: false},{name: "sports", value: true},{name: "horses", value: false},{name: "traveling", value: true}]
+      },
+      {username: "Nevo", age: 98, gender: "other", city: "Melbourne", country: "Australia", 
+        hobbies: [{name: "poodles", value: true},{name: "cats", value: false},{name: "gardening", value: false},{name: "food", value: true},
+        {name: "politics", value: true},{name: "sports", value: false},{name: "horses", value: true},{name: "traveling", value: false}]
+      },
+      {username: "Xiran", age: 88, gender: "non-binary", city: "Sydney", country: "Australia", 
+        hobbies: [{name: "poodles", value: true},{name: "cats", value: false},{name: "gardening", value: false},{name: "food", value: false},
+        {name: "politics", value: true},{name: "sports", value: false},{name: "horses", value: false},{name: "traveling", value: true}]
+      },
+      {username: "Agatha", age: 79, gender: "female", city: "Örnskölkdsvik", country: "Sweden", 
+        hobbies: [{name: "poodles", value: true},{name: "cats", value: false},{name: "gardening", value: true},{name: "food", value: false},
+        {name: "politics", value: false},{name: "sports", value: true},{name: "horses", value: false},{name: "traveling", value: true}]
+      },
+    ]
   },
     
   mutations: {

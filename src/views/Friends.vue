@@ -56,7 +56,7 @@ export default {
       });
     },
     newFun: function(){
-      //Not working
+      //It's working!!
       console.log(service().defaults.baseURL);
     }
 
@@ -70,8 +70,8 @@ export default {
       },
   },
   mounted: function() {
-    this.testGet();
-    this.newFun();
+    //this.testGet();
+    //this.newFun();
   }
 };
 </script>
