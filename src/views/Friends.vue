@@ -21,7 +21,7 @@
 import Assistant from "@/components/Assistant.vue";
 import CardFriend from "@/components/Card_friend.vue";
 import axios from 'axios';
-import api from "@/services/index.js";
+import service from "@/services/index.js";
 //import Search from "@/components/Search.vue";
 
 export default {
@@ -47,15 +47,8 @@ export default {
       return this.friends;
     },
     testGet: async () => {
-      let connection='https://ancient-spire-37013.herokuapp.com/';
-
-      //axios API: https://github.com/axios/axios#using-applicationx-www-form-urlencoded-format
-      //console.log(api.defaults.baseURL)
-
-      //CORS: https://stackoverflow.com/questions/45980173/react-axios-network-error
-
       //example of get
-      axios.get(connection,  { withCredentials: true }).then(function(res) {
+      axios.get(service().defaults.baseURL).then(function(res) {
         console.log('I got this: '+res);
       }).catch(function(error) {
         console.log('this went wrong: '+error);
@@ -64,7 +57,7 @@ export default {
     },
     newFun: function(){
       //Not working
-      console.log(api.defaults.baseURL);
+      console.log(service().defaults.baseURL);
     }
 
   },
@@ -77,7 +70,8 @@ export default {
       },
   },
   mounted: function() {
-    //this.testGet();
+    this.testGet();
+    this.newFun();
   }
 };
 </script>
