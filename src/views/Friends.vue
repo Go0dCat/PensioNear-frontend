@@ -9,7 +9,7 @@
         </div>
         <div class="wrapper friend_create">
           <h2> Add new friend</h2>
-          <div class="btn btn_round btn_gray" @click="testGet()"> <img alt="add new friend icon" src="../assets/add-friend.svg" /></div>
+          <router-link to="/friends/search"><div class="btn btn_round btn_gray"> <img alt="add new friend icon" src="../assets/add-friend.svg" /></div></router-link>
           <!--TODO combine with search   <Search/>-->
         </div>
       </div>
@@ -25,7 +25,7 @@ import api from "@/services/index.js";
 //import Search from "@/components/Search.vue";
 
 export default {
-  name: "Friends",
+  name: "FriendsNew",
   components: {
     Assistant,
     CardFriend,
