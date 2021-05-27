@@ -31,8 +31,7 @@ export default {
   },
   data : function(){
     return{
-      test: "Bob",
-      
+      test: "Bob",      
     };
   },
   methods: {
