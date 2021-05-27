@@ -9,7 +9,7 @@
         </div>
         <div class="wrapper friend_create">
           <h2> Add new friend</h2>
-          <div class="btn btn_round btn_gray" @click="testGet()"> <img alt="add new friend icon" src="../assets/add-friend.svg" /></div>
+          <router-link to="/friends/search"><div class="btn btn_round btn_gray"> <img alt="add new friend icon" src="../assets/add-friend.svg" /></div></router-link>
           <!--TODO combine with search   <Search/>-->
         </div>
       </div>
@@ -21,11 +21,11 @@
 import Assistant from "@/components/Assistant.vue";
 import CardFriend from "@/components/Card_friend.vue";
 import axios from 'axios';
-import api from "@/services/index.js";
+import service from "@/services/index.js";
 //import Search from "@/components/Search.vue";
 
 export default {
-  name: "Friends",
+  name: "FriendsNew",
   components: {
     Assistant,
     CardFriend,
@@ -47,15 +47,8 @@ export default {
       return this.friends;
     },
     testGet: async () => {
-      let connection='https://ancient-spire-37013.herokuapp.com/';
-
-      //axios API: https://github.com/axios/axios#using-applicationx-www-form-urlencoded-format
-      //console.log(api.defaults.baseURL)
-
-      //CORS: https://stackoverflow.com/questions/45980173/react-axios-network-error
-
       //example of get
-      axios.get(connection,  { withCredentials: true }).then(function(res) {
+      axios.get(service().defaults.baseURL).then(function(res) {
         console.log('I got this: '+res);
       }).catch(function(error) {
         console.log('this went wrong: '+error);
@@ -63,8 +56,8 @@ export default {
       });
     },
     newFun: function(){
-      //Not working
-      console.log(api.defaults.baseURL);
+      //It's working!!
+      console.log(service().defaults.baseURL);
     }
 
   },
@@ -78,6 +71,7 @@ export default {
   },
   mounted: function() {
     //this.testGet();
+    //this.newFun();
   }
 };
 </script>

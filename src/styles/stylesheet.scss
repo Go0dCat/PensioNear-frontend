@@ -266,6 +266,13 @@ body {
   height: 2em;
   
 }
+.btn_round_small {
+  padding: .5em;
+  border-radius: 50%;
+  width: 1.5em;
+  height: 1.5em;
+}
+
 .btn_square {
   background: rgba(213, 231, 175, 0.76);
   font-weight: bold;
@@ -612,7 +619,7 @@ div.search_wrapper{
 
 .wrapper {
   display: grid;
-  .wrapper_friends {
+  .wrapper_friends{
     justify-items: center;
 
     .friend_list {

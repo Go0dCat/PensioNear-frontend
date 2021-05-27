@@ -13,11 +13,11 @@
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password">
                 <br><br><br>
-                <input type="submit">
+                <input class="form_text btn" type="submit">
             </form>
             <br><br>
             <p>Do you not have a user yet?</p>
-             <router-link to="/newuser"><p class="form_text btn">Create a new user</p></router-link>
+             <router-link to="/newuser"><p class="form_text btn btn_gray">Create a new user</p></router-link>
         </div>
     </div>
 
@@ -33,6 +33,7 @@
 // @ is an alias to /src
 import Assistant from "@/components/Assistant.vue";
 import axios from 'axios';
+import service from "@/services/index.js";
 
 export default {
   name: "Login",
@@ -42,6 +43,7 @@ export default {
   data : function(){
     return{
       test: null,
+      //id: null
       //dogs: null //usable in getDogs() example function
     };
   },
@@ -101,6 +103,30 @@ export default {
         .catch((error) => {
           console.log(error);
         });
+    },
+    login: async function() {
+      console.log('hej');
+      axios.post(service().defaults.baseURL +'api/auth', {
+        email: "actor@movie.biz",
+        password: "grandeBatwurscht"
+      }).then(function(res){
+          console.log('I posted this: ' + JSON.stringify(res));
+          //console.log('Im sending this: ' + JSON.stringify(res.data));
+          //TODO following get is not working
+          //{user: {_id: 'idstuff'}}
+          axios.get(service().defaults.baseURL +'api/users/me',{ headers: { Authorization: `token ${res.data}` }}).then(function(res2){
+            console.log('I get this: ' + JSON.stringify(res2));
+          }).catch(function(error) {
+            console.log('this went wrong: ' + error);
+            //confirm('Unable to GET, check valid connection');
+          });
+      }).catch(function(error){
+        console.log('this went wrong: ' + error);
+        confirm('Unable to POST, check valid connection');
+      });
+    },
+    fetchUser: async function() {
+      return null;
     }
   },
   computed: {
@@ -109,8 +135,8 @@ export default {
           return this.$store.state.username;
       }
   },
-  mounted: {
-    //run functions here if needed
+  mounted: function() {
+    this.login();
   }
 }
 </script>

@@ -97,6 +97,24 @@ const routes = [
       import(/* webpackChunkName: "about" */ "../views/Friends.vue"),
   },
   {
+    path: "/friends/search",
+    name: "FriendSearch",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/Friends_search.vue"),
+  },
+  {
+    path: "/friends/search/advanced",
+    name: "FriendSearchAdvanced",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/Friends_search_advanced.vue"),
+  },
+  {
     path: "/call",
     name: "Call",
     // route level code-splitting
