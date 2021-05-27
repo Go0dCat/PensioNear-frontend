@@ -23,7 +23,7 @@ export default {
   },
   data : function(){
     return{
-      username: "Bob",
+      test: "Bob",
     };
   },
   methods: {
@@ -33,6 +33,11 @@ export default {
     getMessage: function() {
       return 'What would you like to do now?';
     }
+  },
+  computed: {
+      username() {
+          return this.$store.state.username;
+      },
   }
 }
 </script>

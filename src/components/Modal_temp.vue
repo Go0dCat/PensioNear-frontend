@@ -40,7 +40,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-
+//This can be here for now
 .modal {
     overflow-x: hidden;
     overflow-y: auto;
@@ -56,6 +56,10 @@ export default {
     border: 1px solid rgba(0, 0, 0, 0.5);
     padding:1em;
     justify-items: center;
+
+    p{
+      text-align: center;
+    }
 }
 
 </style>
