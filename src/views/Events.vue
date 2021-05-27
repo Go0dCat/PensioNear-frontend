@@ -4,9 +4,9 @@
     <Search />
     <div class="wrapper box-wrapper">
       <h2 >Categories</h2>
-      <div class="card-buttons">
-        <button v-for="category in categories" :key="category.index">{{category.name}}</button> 
-      </div>
+        <div class="card-buttons">
+          <button v-for="category in categories" :key="category.index" @click="updateChosenCategory(category)">{{category.name}}</button> 
+        </div>
       <button class="detail-btn">See more</button>          
     </div>
 
@@ -39,7 +39,7 @@ import Search from '../components/Search.vue';
 import CardEvent from "../components/Card_event.vue";
 
 export default {
-  name: "Help",
+  name: "Events",
   components: {
     Assistant,
     Search,
@@ -48,7 +48,8 @@ export default {
   data : () => ({
     categories: [],
     events: [],
-    selected:'today'
+    selected:'today',
+    chosenCategory: [],
 
   }),
   mounted(){
@@ -63,7 +64,12 @@ export default {
     },
     getMessage: function() {
       return 'What kind of event are you interested in?';
+    },
+    updateChosenCategory: function(cat){
+      this.chosenCategory = cat;
+      this.$router.push({name:"EventCategory", params: {data:this.chosenCategory}})
     }
+
   },
   computed: {
       username() {
