@@ -1,33 +1,47 @@
 <template>
   <div class="events">
     <Assistant :greet="getGreeting()" :msg="getMessage()"/>
-    <Search />
-    <div class="wrapper box-wrapper">
-      <h2 >Categories</h2>
-        <div class="card-buttons">
-          <button v-for="category in categories" :key="category.index" @click="updateChosenCategory(category)">{{category.name}}</button> 
-        </div>
-      <button class="detail-btn">See more</button>          
-    </div>
+    <Search  v-bind:value="searching" v-on:input="onSearch"/>
+    <div v-if="searching !== 'near_by'">
+      <div  class="wrapper box-wrapper">
+        <h2 >Categories</h2>
+          <div class="card-buttons">
+            <button v-for="category in categories" :key="category.index" @click="updateChosenCategory(category)">{{category.name}}</button> 
+          </div>
+        <button class="detail-btn">See more</button>          
+      </div>
 
-    <div class="wrapper box-wrapper">
-      <h2>Calendar</h2>
-       <div>
-         <form action="" class="form-inline">
-           <div>
-              <label for="">Events</label>
-              <select name="event_sort" v-model="selected" >
-                <option value="today">Today</option>
-                <option value="this_week">This Week</option>
-                <option value="this_month">This Month</option>
-              </select>
-           </div>            
-            <label for=""> <input type="checkbox" /> Show my events</label>
-         </form>
-       </div>
-       <div class="event_wrapper">
-         <CardEvent v-for="ev in events" :key="ev.index" v-bind:event="ev" v-bind:when="selected"/>
-       </div>
+      <div  class="wrapper box-wrapper">
+        <h2>Calendar</h2>
+        <div>
+          <form action="" class="form-inline">
+            <div>
+                <label for="">Events</label>
+                <select name="event_sort" v-model="selected" >
+                  <option value="today">Today</option>
+                  <option value="this_week">This Week</option>
+                  <option value="this_month">This Month</option>
+                </select>
+            </div>            
+              <label for=""> <input type="checkbox" /> Show my events</label>
+          </form>
+        </div>
+        <div class="event_wrapper">
+          <CardEvent v-for="ev in events" :key="ev.index" v-bind:event="ev" v-bind:when="selected"/>
+        </div>
+      </div>
+    </div>
+    <div v-if="searching === 'near_by'">
+      <div  class="wrapper box-wrapper">
+        <div class="near_by_wrapper">
+          <h2 >Near by</h2>
+          <img src="../assets/map.png" alt="">
+        </div>
+        <div class="event_wrapper">
+          <CardEvent v-for="ev in events" :key="ev.index" v-bind:event="ev" v-bind:when="selected"/>
+        </div>
+                  
+      </div>
     </div>
   </div>
 </template>
@@ -50,6 +64,7 @@ export default {
     events: [],
     selected:'today',
     chosenCategory: [],
+    searching: 'online',
 
   }),
   mounted(){
@@ -68,6 +83,10 @@ export default {
     updateChosenCategory: function(cat){
       this.chosenCategory = cat;
       this.$router.push({name:"EventCategory", params: {data:this.chosenCategory}})
+    },
+    onSearch: function(data){
+      this.searching = data
+      console.log(this.searching)
     }
 
   },
