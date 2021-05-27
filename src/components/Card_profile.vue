@@ -9,14 +9,14 @@
             </div>
             <div class="card_user_info">
                 <!--TODO replace with data-->
-                <p>Age: {{age}} years</p>
-                <p>Gender: {{gender}} </p>
-                <p>Likes: <span v-for="(hobby, index) in hobbies" v-bind:key="index">{{hobby}}<span v-if="index < hobbies.length-1">, </span></span></p>
-                <p>{{city}}, {{country}}</p>
+                <p>Age: {{userInfo.age}} years</p>
+                <p>Gender: {{userInfo.gender}} </p>
+                <p>Likes: <span v-for="(hobby, index) in userInfo.hobbies" v-bind:key="index"><span v-if="hobby.value">{{hobby.name}}<span v-if="index < userInfo.hobbies.length-1">, </span></span></span></p>
+                <p>{{userInfo.city}}, {{userInfo.country}}</p>
             </div>
         </div> 
         <div class="card_edit">
-            <p>edit profile</p>
+             <router-link to="/profile/edit"><p>edit profile</p></router-link>
         </div>  
     </div>
 </template>
@@ -35,20 +35,8 @@ export default {
 
   },
   computed: {
-      age() {
-          return this.$store.state.age;
-      },
-      gender() {
-        return this.$store.state.gender;
-      },
-      city() {
-          return this.$store.state.city;
-      },
-      country() {
-          return this.$store.state.country;
-      },
-      hobbies() {
-          return this.$store.state.hobbies;
+      userInfo() {
+          return this.$store.state.userInfo;
       }
   }
 };
