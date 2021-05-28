@@ -118,7 +118,7 @@ export default {
           //console.log('Im sending this: ' + JSON.stringify(res.data));
           //TODO following get is not working
           //{user: {_id: 'idstuff'}}
-          axios.get(service().defaults.baseURL +'api/users/me',{ headers: { Authorization: `token ${res.data}` }}).then(function(res2){
+          axios.get(service().defaults.baseURL +'api/users/me',[],{ headers: { Authorization: `token ${res.data}`}}).then(function(res2){
             console.log('I get this: ' + JSON.stringify(res2));
           }).catch(function(error) {
             console.log('this went wrong: ' + error);
@@ -145,7 +145,7 @@ export default {
           //{user: {_id: 'idstuff'}}
           console.log('I am sending this: ' + JSON.stringify({Authorization: `token ${res.data}`}));
           
-          axios.get(service().defaults.baseURL +'api/users/me',{ headers: { Authorization: `token ${res.data}` }}).then(function(res2){
+          axios.get(service().defaults.baseURL +'api/users/me',{ headers: { 'Authorization': 'Bearer '+res.data}}).then(function(res2){
             console.log('I get this: ' + JSON.stringify(res2));
             //vm.$router.push('Home'); //redirects to home
           }).catch(function(error) {
