@@ -135,7 +135,7 @@ export default {
           //console.log('Im sending this: ' + JSON.stringify(res.data));
           //TODO following get is not working
           //{user: {_id: 'idstuff'}}
-          vm.$router.push('Home'); //redirects to home
+          //vm.$router.push('Home'); //redirects to home
           //console.log('I am sending this: ' + JSON.stringify({Authorization: `token ${res.data}`}));
           //console.log('I am sending this: ' + JSON.stringify({Authorization: { headers: { Authorization: res.data}}}));
           axios.get(service().defaults.baseURL +'api/users/me').then(function(res2){
