@@ -98,15 +98,7 @@ export default {
           confirm('Unable to DELETE, check valid connection');
       });
     },
-    //example of async GET directly from another project, and a cleaner syntax
-     getDogs: async function (){
-      axios
-        .get('http://localhost:8081/api/dog')
-        .then(response => {this.dogs = response.data}) //this.dogs is refering to any such object that exists, an example is in
-        .catch((error) => {
-          console.log(error);
-        });
-    },
+     
     login: async function() {
       console.log('hej');
 
@@ -118,7 +110,7 @@ export default {
           //console.log('Im sending this: ' + JSON.stringify(res.data));
           //TODO following get is not working
           //{user: {_id: 'idstuff'}}
-          axios.get(service().defaults.baseURL +'api/users/me',{ headers: { Authorization: `token ${res.data}` }}).then(function(res2){
+          axios.get(service().defaults.baseURL +'api/users/me',[],{ headers: { Authorization: `token ${res.data}`}}).then(function(res2){
             console.log('I get this: ' + JSON.stringify(res2));
           }).catch(function(error) {
             console.log('this went wrong: ' + error);
@@ -137,17 +129,18 @@ export default {
     },
     tryLogin: async function() {
       console.log('trying to login');
-      //const vm = this;
+      const vm = this;
       axios.post(service().defaults.baseURL +'api/auth', this.userCredentials).then(function(res){
           console.log('I posted this: ' + JSON.stringify(res));
           //console.log('Im sending this: ' + JSON.stringify(res.data));
           //TODO following get is not working
           //{user: {_id: 'idstuff'}}
-          console.log('I am sending this: ' + JSON.stringify({Authorization: `token ${res.data}`}));
-          
-          axios.get(service().defaults.baseURL +'api/users/me',{ headers: { Authorization: `token ${res.data}` }}).then(function(res2){
+          vm.$router.push('Home'); //redirects to home
+          //console.log('I am sending this: ' + JSON.stringify({Authorization: `token ${res.data}`}));
+          //console.log('I am sending this: ' + JSON.stringify({Authorization: { headers: { Authorization: res.data}}}));
+          axios.get(service().defaults.baseURL +'api/users/me').then(function(res2){
             console.log('I get this: ' + JSON.stringify(res2));
-            //vm.$router.push('Home'); //redirects to home
+            vm.$router.push('Home'); //redirects to home
           }).catch(function(error) {
             console.log('this went wrong: ' + error);
             //confirm('Unable to GET, check valid connection');

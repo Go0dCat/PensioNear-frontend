@@ -15,6 +15,8 @@
 <script>
 // @ is an alias to /src
 import Assistant from "@/components/Assistant.vue";
+import axios from 'axios';
+import service from "@/services/index.js";
 
 export default {
   name: "Home",
@@ -32,12 +34,23 @@ export default {
     },
     getMessage: function() {
       return 'What would you like to do now?';
+    },
+    getUsers:  function() {
+       axios.get(service().defaults.baseURL +'api/users/').then(function(res){
+            console.log('I get this: ' + JSON.stringify(res));
+          }).catch(function(error) {
+            console.log('this went wrong: ' + error);
+            //confirm('Unable to GET, check valid connection');
+          });
     }
   },
   computed: {
       username() {
           return this.$store.state.username;
       },
+  },
+  mounted: function(){
+    this.getUsers();
   }
 }
 </script>
