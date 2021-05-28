@@ -98,15 +98,7 @@ export default {
           confirm('Unable to DELETE, check valid connection');
       });
     },
-    //example of async GET directly from another project, and a cleaner syntax
-     getDogs: async function (){
-      axios
-        .get('http://localhost:8081/api/dog')
-        .then(response => {this.dogs = response.data}) //this.dogs is refering to any such object that exists, an example is in
-        .catch((error) => {
-          console.log(error);
-        });
-    },
+     
     login: async function() {
       console.log('hej');
 
