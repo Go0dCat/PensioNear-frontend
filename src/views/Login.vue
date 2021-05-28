@@ -6,24 +6,23 @@
         <!--add LOGIN here-->
         <h2>Login</h2>
         <div class="w_form wrapper"> <!--NOTE you can put oauth code inside this div, replace the dummy form if you want/need-->   
-            <form>
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username">
+            <form @submit="tryLogin" v-on:submit.prevent="onSubmit">
+                <p>Username:</p>
+                <input class="input_inset" v-model="userCredentials.email" placeholder="Write your email here">
                 <br><br>
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password">
+                <p>Password:</p>
+                <input type="password" class="input_inset" v-model="userCredentials.password" placeholder="Write your password here">
                 <br><br><br>
                 <input class="form_text btn" type="submit">
             </form>
             <br><br>
             <p>Do you not have a user yet?</p>
-             <router-link to="/newuser"><p class="form_text btn btn_gray">Create a new user</p></router-link>
+             <router-link to="/newuser"><p class="form_text btn">Create a new user</p></router-link>
         </div>
     </div>
 
     <!--This p is just for testing purposes, it is connected to vuex storage in store/index.js-->
-    <p>The username: {{username}}</p>
-
+    <!--p>The username: {{username}}</p-->
   </div>
 </template>
 
@@ -43,6 +42,10 @@ export default {
   data : function(){
     return{
       test: null,
+      userCredentials: {
+        email: null, //"actor@movie.biz"
+        password:  null//"grandeBatwurscht"
+      },
       //id: null
       //dogs: null //usable in getDogs() example function
     };
@@ -106,6 +109,7 @@ export default {
     },
     login: async function() {
       console.log('hej');
+
       axios.post(service().defaults.baseURL +'api/auth', {
         email: "actor@movie.biz",
         password: "grandeBatwurscht"
@@ -127,7 +131,34 @@ export default {
     },
     fetchUser: async function() {
       return null;
-    }
+    },
+    gotoHome: function() {
+      this.$router.push('Home');
+    },
+    tryLogin: async function() {
+      console.log('trying to login');
+      //const vm = this;
+      axios.post(service().defaults.baseURL +'api/auth', this.userCredentials).then(function(res){
+          console.log('I posted this: ' + JSON.stringify(res));
+          //console.log('Im sending this: ' + JSON.stringify(res.data));
+          //TODO following get is not working
+          //{user: {_id: 'idstuff'}}
+          console.log('I am sending this: ' + JSON.stringify({Authorization: `token ${res.data}`}));
+          
+          axios.get(service().defaults.baseURL +'api/users/me',{ headers: { Authorization: `token ${res.data}` }}).then(function(res2){
+            console.log('I get this: ' + JSON.stringify(res2));
+            //vm.$router.push('Home'); //redirects to home
+          }).catch(function(error) {
+            console.log('this went wrong: ' + error);
+            //confirm('Unable to GET, check valid connection');
+          });
+      }).catch(function(error){
+        console.log('this went wrong: ' + error);
+        confirm('Unable to POST, check valid connection');
+      });
+    },
+    
+
   },
   computed: {
       //NOTE: computed properties updates dynamically
@@ -136,7 +167,7 @@ export default {
       }
   },
   mounted: function() {
-    this.login();
+    //this.login();
   }
 }
 </script>
