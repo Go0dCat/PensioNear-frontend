@@ -36,8 +36,8 @@ export default {
       return 'What would you like to do now?';
     },
     getUsers:  function() {
-       axios.get(service().defaults.baseURL +'api/users/me').then(function(res2){
-            console.log('I get this: ' + JSON.stringify(res2));
+       axios.get(service().defaults.baseURL +'api/users/').then(function(res){
+            console.log('I get this: ' + JSON.stringify(res));
           }).catch(function(error) {
             console.log('this went wrong: ' + error);
             //confirm('Unable to GET, check valid connection');
@@ -48,6 +48,9 @@ export default {
       username() {
           return this.$store.state.username;
       },
+  },
+  mounted: function(){
+    this.getUsers();
   }
 }
 </script>

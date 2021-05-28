@@ -11,6 +11,7 @@
           <!--TODO bind to data -->
           <!--CardFriend v-for="(friend,index) in friends" v-bind:key="index" :friend="friend"/-->
           <Suggestion v-for="(user, index) in getRandUsers()" v-bind:key="index" :user="user"/>
+          <Suggestion2 v-for="(user, index) in usersDB" v-bind:key="index" :user="user"/>
         </div>
       
 
@@ -23,7 +24,9 @@
 import Assistant from "@/components/Assistant.vue";
 import Search from "@/components/Search.vue";
 import Suggestion from "@/components/Card_friend_suggestion.vue";
-//import axios from 'axios';
+import Suggestion2 from "@/components/Card_friend_suggestion2.vue";
+import axios from 'axios';
+import service from "@/services/index.js";
 //import Search from "@/components/Search.vue";
 
 export default {
@@ -31,15 +34,13 @@ export default {
   components: {
     Assistant,
     Search,
-    Suggestion
+    Suggestion,
+    Suggestion2
   },
   data : function(){
     return{
       test: "Bob", 
-      users: [
-        {username: "Bob", age: 74},
-        {username: "Alice", age: 34}
-      ],
+      usersDB: null,
 
     };
   },
@@ -55,6 +56,16 @@ export default {
     },
     getRandUsers: function() {
       return this.allUsers.sort(() => 0.5 - Math.random()).slice(0,3);
+    },
+    getUsers:  function() {
+      const vm = this;
+       axios.get(service().defaults.baseURL +'api/users/').then(function(res){
+            console.log('I get this: ' + JSON.stringify(res.data));
+            vm.usersDB = res.data.sort(() => 0.5 - Math.random()).slice(0,3);
+          }).catch(function(error) {
+            console.log('this went wrong: ' + error);
+            //confirm('Unable to GET, check valid connection');
+          });
     }
 
   },
@@ -72,6 +83,7 @@ export default {
   mounted: function() {
     //this.testGet();
     //getRandUsers();
+    this.getUsers();
   }
 };
 </script>

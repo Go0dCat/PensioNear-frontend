@@ -129,17 +129,18 @@ export default {
     },
     tryLogin: async function() {
       console.log('trying to login');
-      //const vm = this;
+      const vm = this;
       axios.post(service().defaults.baseURL +'api/auth', this.userCredentials).then(function(res){
           console.log('I posted this: ' + JSON.stringify(res));
           //console.log('Im sending this: ' + JSON.stringify(res.data));
           //TODO following get is not working
           //{user: {_id: 'idstuff'}}
-          console.log('I am sending this: ' + JSON.stringify({Authorization: `token ${res.data}`}));
-          
-          axios.get(service().defaults.baseURL +'api/users/me',{ headers: { 'Authorization': 'Bearer '+res.data}}).then(function(res2){
+          vm.$router.push('Home'); //redirects to home
+          //console.log('I am sending this: ' + JSON.stringify({Authorization: `token ${res.data}`}));
+          //console.log('I am sending this: ' + JSON.stringify({Authorization: { headers: { Authorization: res.data}}}));
+          axios.get(service().defaults.baseURL +'api/users/me').then(function(res2){
             console.log('I get this: ' + JSON.stringify(res2));
-            //vm.$router.push('Home'); //redirects to home
+            vm.$router.push('Home'); //redirects to home
           }).catch(function(error) {
             console.log('this went wrong: ' + error);
             //confirm('Unable to GET, check valid connection');
